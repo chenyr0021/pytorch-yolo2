@@ -8,7 +8,7 @@ def demo(cfgfile, weightfile):
     m.load_weights(weightfile)
     print('Loading weights from %s... Done!' % (weightfile))
 
-    if m.num_classes == 20:
+    if m.num_classes == 20:    # edit in yolo.cfg line 244
         namesfile = 'data/voc.names'
     elif m.num_classes == 80:
         namesfile = 'data/coco.names'
@@ -20,7 +20,7 @@ def demo(cfgfile, weightfile):
     if use_cuda:
         m.cuda()
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture('test.mp4')
     if not cap.isOpened():
         print("Unable to open camera")
         exit(-1)
